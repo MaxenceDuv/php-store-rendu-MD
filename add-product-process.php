@@ -13,11 +13,6 @@ $productPrice = trim($_POST['price']);
 // $productCover = trim($_POST['cover']);
 $productDescription = trim($_POST['description']);
 $productCategory = $_POST['category'];
-// on met le fichier dans une variable pour une meilleure lisibilité
-$file = $_FILES['fileToUpload'];
-// On récupère le nom du fichier
-// $fileName = uniqid() . "_" . date("YmdHis") . "_" . $file['name'];
-$filename = $file['name'];
 
 if (empty($productName)) {
     redirect('/add-product.php?error=' . ProductError::NAME_REQUIRED);
@@ -25,7 +20,7 @@ if (empty($productName)) {
 if (empty($productPrice)) {
     redirect('/add-product.php?error=' . ProductError::PRICE_REQUIRED);
 }
-if (empty($filename)) {
+if (empty($_FILES['fileToUpload']['name'])) {
     redirect('/add-product.php?error=' . ProductError::COVER_REQUIRED);
 }
 if (empty($productDescription)) {
@@ -35,12 +30,9 @@ if ($productCategory === "0"){
     redirect('/add-product.php?error=' . ProductError::CATEGORY_REQUIRED);
 }
 
-
-// On construit le chemin de destination
-$destination = __DIR__ . "/uploads/Products/" . $filename;
-// On bouge le fichier temporaire dans la destination
-if (!move_uploaded_file($file['tmp_name'], $destination)) {
-    echo $filename . " Non enregistré <br />";
+if (upload_file($_FILES['fileToUpload'], "Products"))
+{
+    redirect('/add-product.php?error=' . ProductError::COVER_ERROR_UPLOAD);
 }
 
 try {

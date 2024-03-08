@@ -7,6 +7,7 @@ class ProductError
     public const COVER_REQUIRED = 3;
     public const DESCRIPTION_REQUIRED = 4;
     public const CATEGORY_REQUIRED = 5;
+    public const COVER_ERROR_UPLOAD = 6;
     // public const DUPLICATE = 2;
     // public const NAME_TOO_LONG = 3;
     // ...

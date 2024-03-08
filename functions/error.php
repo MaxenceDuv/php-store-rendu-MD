@@ -18,6 +18,7 @@ function productErrorMessage(int $errorCode): string
         ProductError::COVER_REQUIRED => "La cover est obligatoire",
         ProductError::DESCRIPTION_REQUIRED => "La Description est obligatoire",
         ProductError::CATEGORY_REQUIRED => "La catégorie est obligatoire",
+        ProductError::COVER_ERROR_UPLOAD => "Il y a eu une erreur lors de l'upload de l'image",
         default => "Une erreur est survenue"
     };
 };
