@@ -17,6 +17,7 @@ function productErrorMessage(int $errorCode): string
         ProductError::PRICE_REQUIRED => "Le prix est obligatoire",
         ProductError::COVER_REQUIRED => "La cover est obligatoire",
         ProductError::DESCRIPTION_REQUIRED => "La Description est obligatoire",
+        ProductError::CATEGORY_REQUIRED => "La catégorie est obligatoire",
         default => "Une erreur est survenue"
     };
 };
