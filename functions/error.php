@@ -7,12 +7,19 @@ function categoryErrorMessage(int $errorCode): string
 {
     return match ($errorCode) {
         CategoryError::NAME_REQUIRED => "Le nom est obligatoire",
+        default => "Une erreur est survenue"
+    };
+}
+function productErrorMessage(int $errorCode): string
+{
+    return match ($errorCode) {
         ProductError::NAME_REQUIRED => "Le nom est obligatoire",
         ProductError::PRICE_REQUIRED => "Le prix est obligatoire",
         ProductError::COVER_REQUIRED => "La cover est obligatoire",
         ProductError::DESCRIPTION_REQUIRED => "La Description est obligatoire",
         default => "Une erreur est survenue"
     };
+};
 
     // switch ($errorCode) {
     //     case 1:
@@ -23,4 +30,3 @@ function categoryErrorMessage(int $errorCode): string
     // }
 
     // return $errorMsg;
-}

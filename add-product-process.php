@@ -16,7 +16,7 @@ $productCategory = $_POST['category'];
 // on met le fichier dans une variable pour une meilleure lisibilité
 $file = $_FILES['fileToUpload'];
 // On récupère le nom du fichier
-$filename = $file['name'];
+$fileName = uniqid() . "_" . date("YmdHis") . "_" . $file['name'];
 
 if (empty($productName)) {
     redirect('/add-product.php?error=' . ProductError::NAME_REQUIRED);
