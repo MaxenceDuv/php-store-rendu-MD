@@ -17,7 +17,7 @@ require_once __DIR__ . '/layout/header.php';
     $categories = $categoriesDb->findAll();
     ?>
 
-    <form action="add-product-process.php" method="POST">
+    <form action="add-product-process.php" method="POST" enctype="multipart/form-data">
         <div>
             <label for="name">Nom :</label>
             <input type="text" name="name" id="name" />
@@ -27,8 +27,8 @@ require_once __DIR__ . '/layout/header.php';
             <input type="text" name="price" id="price" />
         </div>
         <div>
-            <label for="cover">Image :</label>
-            <input type="text" name="cover" id="cover" />
+            Select image to upload:
+            <input type="file" name="fileToUpload" id="fileToUpload">
         </div>
         <div>
             <label for="description">Description :</label>

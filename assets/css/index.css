@@ -21,3 +21,32 @@
   padding: 1em;
   color: #fff;
 }
+
+.produits {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.produit {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px;
+}
+
+.produit h2 {
+  margin-top: 0;
+}
+
+.produit img {
+  width: 500px;
+  height: auto;
+}
+
+.produit p {
+  margin-bottom: 10px;
+}
+
+.produit .prix {
+  font-weight: bold;
+}
