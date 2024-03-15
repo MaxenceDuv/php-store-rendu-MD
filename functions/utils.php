@@ -6,17 +6,15 @@ function redirect(string $location): never
     exit;
 }
 
-function upload_file(array $file, string $emplacement): bool
+function upload_file(array $file, string $emplacement): string
 {
     // On récupère le nom du fichier
     $filename = uniqid() . "_" . date("YmdHis") . "_" . $file['name'];
-    var_dump($filename);
     // On construit le chemin de destination
     $destination = __DIR__ . "/../uploads/" . $emplacement . "/" . $filename;
-    var_dump($destination);
     // On bouge le fichier temporaire dans la destination
     if (!move_uploaded_file($file['tmp_name'], $destination)) {
-        return true;
+        return "null";
     }
-    return false;
+    return $filename;
 }

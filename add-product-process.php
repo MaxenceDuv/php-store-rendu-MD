@@ -10,7 +10,6 @@ if (!isset($_POST['name']) || !isset($_POST['price']) || !isset($_FILES['fileToU
 
 $productName = trim($_POST['name']);
 $productPrice = trim($_POST['price']);
-// $productCover = trim($_POST['cover']);
 $productDescription = trim($_POST['description']);
 $productCategory = $_POST['category'];
 
@@ -30,7 +29,8 @@ if ($productCategory === "0"){
     redirect('/add-product.php?error=' . ProductError::CATEGORY_REQUIRED);
 }
 
-if (upload_file($_FILES['fileToUpload'], "Products"))
+$CoverName = upload_file($_FILES['fileToUpload'], "Products");
+if ($CoverName === "Null")
 {
     redirect('/add-product.php?error=' . ProductError::COVER_ERROR_UPLOAD);
 }
@@ -46,7 +46,7 @@ $stmt = $pdo->prepare("INSERT INTO product (name, price_vat_free, cover, descrip
 $stmt->execute([
     'productName' => $productName,
     'productPrice' => $productPrice,
-    'productCover' => $filename,
+    'productCover' => $CoverName,
     'productDescription' => $productDescription,
     'productCategory' => $productCategory
 ]);
